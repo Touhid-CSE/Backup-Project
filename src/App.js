@@ -1,12 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Page from './components/Page'
+import NavBar from './components/NavBar';
+import MyRoute from './components/MyRoute';
+import { BrowserRouter } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Page></Page>
+      <BrowserRouter>
+        <NavBar></NavBar>
+        <MyRoute></MyRoute>
+        <Footer></Footer>
+      </BrowserRouter> 
     </div>
   );
 }
