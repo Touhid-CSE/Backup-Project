@@ -3,7 +3,7 @@ import React from 'react'
 export default function NotFound() {
     return (
         <div>
-            <h1>This page you are lokking for : Not Found !</h1>
+            <h4>The page you are looking for is not found !</h4>
         </div>
     )
 }
