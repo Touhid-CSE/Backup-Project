@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+// import firebase from '../../firebase'
+// firebase.firestore().collection('times').add({
+//     title: 'Rubik\'s Cube',
+//     time_seconds: 45
+// })
 
 export default class Home extends Component {
     constructor(){

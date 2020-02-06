@@ -34,3 +34,14 @@ body{
   margin-top: 0;
 }
 
+/* CrudFirebase Section */
+
+.time-entry {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.time {
+  color: #776ad4;
+}
