@@ -46,7 +46,7 @@ body{
 .time-entry {
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 70%;
 }
 
 .time {

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import firebase from '../../../../firebase'
 import Insert from './Insert'
+import UpdateDelete from './UpdateDelete'
 
 const SORT_OPTIONS = {
     TIME_ASC: {column: 'time_seconds', direction: 'asc'},
@@ -29,10 +30,12 @@ const Display = () => {
             <ol>
                 {times.map(time => 
                     <li key={time.id}>
-                        <div className='time-entry'>
+                        <UpdateDelete time={time}/>
+
+                        {/* <div className='time-entry'>
                             {time.title}
                             <code className="time">{time.time_seconds} seconds</code>
-                        </div> 
+                        </div>  */}
                     </li>
                 )}   
             </ol>
@@ -56,7 +59,7 @@ function useTimes(sortBy = 'TIME_ASC'){
                 }))
                 setTimes(newTimes)
             })
-        return () => unsubscribe()
+        return () => unsubscribe
     },[sortBy])
 
     return times

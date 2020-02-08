@@ -4,6 +4,8 @@ import firebase from '../../../../firebase'
 export default function Insert() {
     const title = useFormInput([])
     const time = useFormInput([])
+
+    
     const handleSubmit = (event) => {
         event.preventDefault()
         let newTitle = title.value
