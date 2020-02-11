@@ -59,7 +59,7 @@ function useTimes(sortBy = 'TIME_ASC'){
                 }))
                 setTimes(newTimes)
             })
-        return () => unsubscribe
+        return () => unsubscribe()
     },[sortBy])
 
     return times

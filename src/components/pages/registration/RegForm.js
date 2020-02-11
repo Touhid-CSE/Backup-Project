@@ -82,8 +82,8 @@ export default function RegForm(props) {
                     <br/>
                     <label>Destination</label>
                     <br/>
-                    <select {...travelingTo}>
-                        <option selected disabled value="">--Select destination--</option>
+                    <select {...travelingTo} defaultValue={'DEFAULT'}>
+                        <option value="DEFAULT" disabled>--Select destination--</option>
                         <option value="Cox's Bazar">Cox's Bazar</option>
                         <option value="Sajek Valley">Sajek Valley</option>
                         <option value="Bandarban">Bandarban</option>
