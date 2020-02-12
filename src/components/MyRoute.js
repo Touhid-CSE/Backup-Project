@@ -7,7 +7,7 @@ import NotFound from './pages/NotFound'
 import Home from './pages/Home'
 import Display from './pages/crud/firebase/Display'
 import ImageUpload from './pages/crud/firebase/ImageUpload'
-import ImageDisplay from './pages/crud/firebase/ImageDisplay'
+import ImagesHook from './pages/crud/firebase/ImagesHook'
 
 export default function MyRoute() {
     return (
@@ -19,7 +19,7 @@ export default function MyRoute() {
                 <Route path="/registration" component={RegForm}/>
                 <Route path="/crud-firebase" component={Display}/>
                 <Route path="/firebase-file-upload" component={ImageUpload}/>
-                <Route path="/firebase-image-list" component={ImageDisplay}/>
+                <Route path="/firebase-image-list" component={ImagesHook}/>
                 <Route component={NotFound}/>
             </Switch>
         </div>

@@ -8,39 +8,39 @@ export default class ImageDisplay extends Component {
     constructor(){
         super()
         this.state = {
-            imgFullPath: [],
-            imgUrl: []
+            isLoading: true,
+            imagesInfo: [],
         }   
     }
+    
     componentDidMount = () =>{
 
         const imageList = storageRef.child('images').listAll()
 
         imageList.then(snapshot => {
-            let imgFullPath = []
-            let imgUrl = []
+            let imagesInfo = []
             let items = snapshot.items
+
             items.forEach(itemRef => {
-                //console.log(itemRef.fullPath)
-                imgFullPath = [...imgFullPath, itemRef.fullPath]
-                imgUrl = [...imgUrl, itemRef.getDownloadURL()]
+                let imgFullPath = itemRef.fullPath
+                itemRef.getDownloadURL().then(function(imgUrl) {
+
+                    return imgUrl
+
+               }).then(url=>{
+                   imagesInfo = [...imagesInfo, { imgFullPath, imgUrl: url}]
+                   this.setState({
+                       imagesInfo
+                   }) 
+                   
+               })    
             })
-            //imgFullPath = Promise.all(imgFullPath).then(imgPath => imgPath)
-            imgUrl = Promise.all(imgUrl).then(url => url)
-            let imgData = Promise.all([imgFullPath, imgUrl]).then(myArray => myArray)
-
-            return imgData
-        
-        }).then(imgData => {
-
-            console.log(imgData)
+            
+        }).then(
             this.setState({
-                ...this.state,
-                imgFullPath: imgData[0],
-                imgUrl: imgData[1]
+                isLoading: false
             })
-
-        })
+        )
         .catch(function(error) {
             // Uh-oh, an error occurred!
         }); 
@@ -52,10 +52,10 @@ export default class ImageDisplay extends Component {
             <div style={{display: 'flex',justifyContent: 'space-between', padding: '20px'}}>
                 
                     {
-                        this.state.imgUrl.map(url => (
-                            <div style={{}} key={url}>
+                        this.state.imagesInfo.map(image => (
+                            <div style={{}} key={image.imgFullPath}>
                                 <img 
-                                    src={url || 'https://via.placeholder.com/200x150'}
+                                    src={image.imgUrl || 'https://via.placeholder.com/200x150'}
                                     alt='reload'
                                     height="150"
                                     width="200"
