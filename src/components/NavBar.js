@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {NavLink} from 'react-router-dom'
 import './NavBar.css'
 
 export default function NavBar() {
 
     const [toggoleControl, setToggoleControl] = useState({display: ""})
-    const [width, setWidth] = useState(window.innerWidth)
+    // const [width, setWidth] = useState(window.innerWidth)
 
-    useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth)
-        window.addEventListener('resize', handleResize)
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        };
-    })
+    // React.useEffect(() => {
+    //     const handleResize = () => setWidth(window.innerWidth)
+    //     window.addEventListener('resize', handleResize)
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize)
+    //     };
+    // })
 
     const handleToggleButtonClick = () => {
        
@@ -41,7 +41,7 @@ export default function NavBar() {
                 <ul>
                     <li><NavLink className="link-item" exact activeStyle={{}} to="/">Home</NavLink></li>
                     <li><NavLink className="link-item" exact activeStyle={{}} to="/about">About</NavLink></li>
-                    <li><NavLink className="link-item" exact activeStyle={{}} to="/contact">{width}</NavLink></li>
+                    <li><NavLink className="link-item" exact activeStyle={{}} to="/contact">Contact</NavLink></li>
                     <li><NavLink className="link-item" exact activeStyle={{}} to="/crud-firebase">Crud</NavLink></li>
                     <li><NavLink className="link-item" exact activeStyle={{}} to="/firebase-file-upload">Upload</NavLink></li>
                     <li><NavLink className="link-item" exact activeStyle={{}} to="/firebase-image-list">Images</NavLink></li>
